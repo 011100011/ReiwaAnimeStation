@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "61891946fc16d7dee7f24596"
+  },
+  "name": "Okonomiyaki Soba",
+  "image": "OkonomiyakiSoba.png",
+  "price": "155"
+},{
+  "_id": {
+    "$oid": "618919dffc16d7dee7f24597"
+  },
+  "name": "Tonkotsu Ramen",
+  "image": "TonkotsuRamen.png",
+  "price": "180"
+},{
+  "_id": {
+    "$oid": "61891a2cfc16d7dee7f24599"
+  },
+  "name": "Chicken Katsu Omurice",
+  "image": "ChickenKatsuOmurice.png",
+  "price": "220"
+},{
+  "_id": {
+    "$oid": "61891a83fc16d7dee7f2459a"
+  },
+  "name": "Chicken Katsu (Rice Set)",
+  "image": "ChickenKatsu(RiceSet).png",
+  "price": "195"
+},{
+  "_id": {
+    "$oid": "61891ab6fc16d7dee7f2459b"
+  },
+  "name": "Chashu Omurice",
+  "image": "ChashuOmurice.png",
+  "price": "150"
+}]
