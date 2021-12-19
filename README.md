@@ -6,12 +6,12 @@ https://github.com/011100011/ReiwaAnimeStation
 
 1.) Installation
 
-     - After download or clone run npm install OR yarn install to install all the dependencies.
+     - After download or clone run "npm install" or "yarn install" to install all the dependencies.
 
 2.) Accessing The Local Host
 
-     - After the installation of dependencies, run yarn dev.
+     - After the installation of dependencies, run "yarn dev" to access the website.
      
-3.) Accessing The Laravel Framework (if you want to edit the scss file or to enhance the design of the website)
+3.) Accessing The Laravel Framework
 
-     - run yarn watch.
+     - If you want to edit the scss file or to enhance the design of the website, run "yarn watch".
