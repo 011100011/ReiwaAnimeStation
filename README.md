@@ -6,7 +6,7 @@ https://github.com/011100011/ReiwaAnimeStation
 
 1.) Installation
 
-     - After download or clone run "npm install" or "yarn install" to install all the dependencies.
+     - After download the file or clone. Unzip or extract the file then in your software application go to terminal then run "npm install" or "yarn install" to install all the dependencies.
 
 2.) Accessing The Local Host
 
