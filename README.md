@@ -8,11 +8,11 @@ https://github.com/011100011/ReiwaAnimeStation
 
      - After download the file or clone. Unzip or extract the file then in your software application go to terminal then run "npm install" or "yarn install" to install all dependencies.
      
-2.) Accessing The Local Host
+2.) Accessing the Localhost
 
      - After the installation of dependencies, run "yarn dev" to access the website.
      
-3.) Accessing The Laravel Framework
+3.) Accessing the Laravel Framework
 
      - If you want to edit the scss file or beautify the website design, run "yarn watch".
 
