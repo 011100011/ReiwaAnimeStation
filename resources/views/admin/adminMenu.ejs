@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/string-strip-html/dist/string-strip-html.umd.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="m-4 text-center">
+            <h1><span class="about1">M</span>enu</h1>
+        </div>
+        <div class="row mb-3">
+            <a href="/admin/newItem" class="btn btn-success d-flex align-items-center"><i class="material-icons mr-2">add_circle</i>
+                New Item</a>
+        </div>
+
+        <div class="row">
+
+            <% menu.forEach(menu=>{ %>
+            <div class="col-lg-6 card mt-2 mr-0">
+                <div class="row p-2">
+                    <div class="col-5 overflow-hidden">
+                        <img src="/img/REIWAImg/REIWAMenu/TurningJapanese/<%= menu.image%>" class="card-img h-40 w-75" alt="...">
+                    </div>
+                    <div class="col-7">
+                        <div class="d-flex align-items-start">
+                            <h4 class="w-100"><b> <%= menu.name %> </b></h5>
+                            
+                            <!--Display more button-->
+                            <div class="more position-relative" style="cursor: pointer;">
+                                <i class="material-icons p-2">more_vert</i>
+                                <div class="d-none options card rounded-pill shadow-sm p-1 position-absolute">
+                                    <a href="/admin/editMenu/<%=menu._id %>" class="rounded-circle px-2 py-0 mb-2" style="background:blue;">
+                                        <i class="material-icons mt-1" style="color:white">create</i>
+                                    </a>
+                                    <form action="/deleteItem/<%=menu._id %>?_method=DELETE" method="POST">
+                                        <button class="rounded-circle px-2 py-0 bg-danger">
+                                            <i class="material-icons mt-1" style="color:white">delete</i>
+                                        </button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                        <h4 class="align-self-stretch breadcrumbs-title-3">₱<%= menu.price %><span></span></h4>
+                        <!------
+                                                    <div class="d-flex align-items-end">
+                            <div class="mr-2">
+                                <img src="/img/REIWAImg/REIWAMenu/TurningJapanese/<%= menu.image%>"class="rounded-circle" style="width: 40px; height: 40px;">
+                            </div>
+                            <a  href="/admin/adminMenu/<%=menu._id %>" class=" align-self-end">
+                                <i class='material-icons ml-3 text-black'>send</i>
+                            </a>
+                        </div>--->
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+
+
+
+
+        </div>
+        <script src="/js/indexMain.js"></script>
+
+</body>
+
+</html>

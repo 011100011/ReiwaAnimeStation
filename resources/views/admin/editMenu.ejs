@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/string-strip-html/dist/string-strip-html.umd.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Item</title>
+</head>
+<body>
+   <div class="container">
+       <h1><span class="about1 mb-4">E</span>diting: <%= menu.name%></h1>
+       <form action="/viewItem1/<%= menu.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="name">Item name</label>
+            <input class="form-control" placeholder="Title" name="name" value="<%= menu.name%>" required></input>
+        </div>
+        <div class="form-group">
+            <label for="price">Item Price</label>
+            <input class="form-control" type="number" placeholder="Price" name="price" value="<%= menu.price%>" required></input>
+        </div>
+        <div class="form-group">
+            <label for="status">Status: </label>
+            <select name="status" for="status">
+                <option>Available</option>
+                <option>Not Available</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="image">Upload Image</label>
+            <input type="file" name="image" id="image"  class="form-control-file" required>
+        </div>
+
+
+        <div class="form-group">
+            <a href="/admin/adminMenu" class="btn btn-warning">Cancel</a>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+       </form>
+   </div>
+</body>
+</html>

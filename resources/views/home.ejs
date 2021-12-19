@@ -1,0 +1,374 @@
+<!-- hero section -->
+<div class="hero-wrapper py-12 sm:py-15 lg:py-20 bg-secondary">
+  <div class="container mx-auto px-4">
+    <div class="sm:flex items-center justify-between">
+      <div class="md:w-2/4 text-center sm:text-left w-full mt-8">
+        <h6 class="text-lg lg:text-xl text-white mb-2"><em>Are your hungry?</em></h6>
+        <h1 class="text-4xl font-bold lg:mb-14 lg:text-6xl text-white">What are you<br> waiting for?</h1>
+        <a
+          href="/#menu"
+          class="inline-block px-6 btn-primary py-2 rounded-full transition duration-300 ease-in-out hover:bg-primaryHover text-white shadow"
+        >
+          <div class="flex items-center">
+            Order Now
+            <img src="/img/arrow-narrow-right.svg" alt="go" class="ml-2.5" />
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <svg class="waveHome" xmlns="http://www.w3.org/2000/svg"
+             viewBox="0 0 1440 320"><path fill="#000000" fill-opacity="1"
+             d="M0,128L80,112C160,96,320,64,480,80C640,96,800,160,960,
+             165.3C1120,171,1280,117,1360,90.7L1440,64L1440,320L1360,
+             320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,
+             320,160,320,80,320L0,320Z"></path>
+      </svg>
+</div>
+<!-- hero section ends -->
+<!-- about section -->
+<div id="about" class="aboutUs">
+  <div class="video">
+      <video muted class="aboutVideo video-js vjs-default-skin bg-center bg-no-repeat w-screen" controls controlsList="nodownload" autoplay="auto" preload="none" quality="1080p" loop>
+          <source src="/img/uploads/video.mp4" type="video/mp4">
+      </video>
+  </div>
+  <div class="aboutContent">
+      <h1><span class="about1">A</span>BOUT US</h1>
+      <span class="aboutLine"><!-- line here --></span>
+      <p>REIWA Kitchen offers authentic yet affordable Japanese Cuisines right at your doorstep!
+      We are one with you in prayer that better days are coming. That we will be able to make memories 
+      again with our families and friends while eating the best tasting takoyaki (and ramen and okosoba 
+      and the list goes on) in town. We're ready to serve you! REIWA Kitchen is happy to deliver authentic
+      Japanese foods at the comforts of your home. Big or small, every moment matter. Let's celebrate to that 😉. 
+      </p>
+      <ul class="aboutIcons">
+          <li>
+              <a href="#"> <i class="aboutIcons fab fa-facebook"></i></a>
+          </li>
+          <li>
+              <a href="#"><i class="aboutIcons fab fa-twitter"></i></a>
+          </li>
+          <li>
+              <a href="#"><i class="aboutIcons fab fa-instagram"></i></a>
+          </li>
+      </ul>
+  </div>
+</div>
+<!-- about section end -->
+<!-- menu section -->
+<div class="menu-wrapper py-10 sm:py-15 lg:py-20" id="menu">
+  <div class="container mx-auto px-4">
+    <div class="section-menu">
+      <i class="menuIcons fas fa-utensils"></i>
+      <h1 class="menuTitle1">Our <span class="menu1">M</span>enu</h1>
+      <p class="menuText">Takoyaki, Okosoba, Ramen, Kaarage, Tonkatsu and etc.</p>
+    </div>
+    <div
+      class="grid grid-cols-1 gap-x-12 gap-y-20 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ml-15"
+    >
+    <% order.forEach(function(order) { %>
+        <% if(order.status == "Available") { %>
+      <div class="w-full md:w-64">
+        <div class="single-publication text-center">
+            <figure>
+                <img src="/img/REIWAImg/REIWAMenu/TurningJapanese/<%= order.image%>" class="h-40 mb-4 bg-transparent mx-auto" alt="Order Image">
+            </figure>
+            <div class="publication-content">
+                <span class="category"></span>
+                <h3 class="menuName"><%= order.name %></h3>
+                <ul>
+                    <li><i class="menuIcons fas fa-star"></i></li>
+                    <li><i class="menuIcons fas fa-star"></i></li>
+                    <li><i class="menuIcons fas fa-star"></i></li>
+                    <li><i class="menuIcons fas fa-star"></i></li>
+                    <li><i class="menuIcons fas fa-star"></i></li>
+                </ul>
+                <h4 class="price">₱<%= order.price %><span></span></h4>
+            </div>
+                <div class="cartBtn">
+                    <button data-order="<%= JSON.stringify(order)%>" class="minus-btn">
+                        <span><i class="fas fa-minus"></i></span>
+                    </button>
+                    <button data-order="<%= JSON.stringify(order)%>" class="cart-btn">
+                      <span><i class="fas fa-plus"></i></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <% } %>
+      <% }) %>
+    </div>
+  </div>
+</div>
+<!-- menu section ends -->
+<!-- team section -->
+<section id="team" class="teamPage">
+  <div class="section-team">
+      <i class="teamIcons fas fa-users"></i>
+      <h1 class="teamTitle">OUR <span class="team1">T</span>EAM</h1>
+      <p class="teamText">The goal of our team and food service establishments is to provide authentic food and excellent
+          service to customers while staying within food and labour costs so that the operation can make a profit. This goal can only be achieved with the
+          cooperation and support of all of the staff. Our staff share a sense of purpose or common goals that each member is willing to work toward.</p>
+  </div>
+<div class="teamContainer">
+  <div class="teamCard">
+      <div class="bg-image">
+          <img src="/img/REIWAImg/REIWACrew/REIWA.jpg" alt="">
+      </div>
+      <div class="pic">
+          <img src="/img/REIWAImg/REIWACrew/Del.jpg" alt="">
+      </div>
+      <div class="info">
+          <h3>DEL CARIAGA</h3>
+          <span><i class="far fa-user"></i> Supervisor</span>
+          <p>A responsible for the productivity and actions of a small group of employees. 
+          A supervisor has several roles, responsibilities, and powers.</p>
+          <div class="team-icons">
+              <a href="#" class="fab fa-facebook-square"></a>
+              <a href="#" class="fab fa-twitter-square"></a>
+              <a href="#" class="fab fa-instagram"></a>
+          </div>
+      </div>
+  </div>
+  <div class="teamCard">
+      <div class="bg-image">
+          <img src="/img/REIWAImg/REIWACrew/REIWA.jpg" alt="">
+      </div>
+      <div class="pic">
+          <img src="/img/REIWAImg/REIWACrew/Jhoanna.jpg" alt="">
+      </div>
+      <div class="info">
+          <h3>JHOANNA GALICINAO</h3>
+          <span><i class="far fa-user"></i> Accountant</span>
+          <p>A responsible for keeping and interpreting financial records.
+          It is a broad term that encompasses multiple different job titles 
+          and roles within organizations.</p>
+          <div class="team-icons">
+              <a href="#" class="fab fa-facebook-square"></a>
+              <a href="#" class="fab fa-twitter-square"></a>
+              <a href="#" class="fab fa-instagram"></a>
+          </div>
+      </div>
+  </div>
+  <div class="teamCard">
+      <div class="bg-image">
+          <img src="/img/REIWAImg/REIWACrew/REIWA.jpg" alt="">
+      </div>
+      <div class="pic">
+          <img src="/img/REIWAImg/REIWACrew/Rhon.jpg" alt="">
+      </div>
+      <div class="info">
+          <h3>RHON DATU</h3>
+          <span><i class="far fa-user"></i> Head Chef</span>
+          <p>A highly skilled professional cook who oversees the operations
+          of a restaurant or dining facility. A responsible for the food that
+          comes out of a kitchen.</p>
+          <div class="team-icons">
+              <a href="#" class="fab fa-facebook-square"></a>
+              <a href="#" class="fab fa-twitter-square"></a>
+              <a href="#" class="fab fa-instagram"></a>
+          </div>
+      </div>
+  </div>
+  <div class="teamCard">
+      <div class="bg-image">
+          <img src="/img/REIWAImg/REIWACrew/REIWA.jpg" alt="">
+      </div>
+      <div class="pic">
+          <img src="/img/REIWAImg/REIWACrew/Ayen.jpg" alt="">
+      </div>
+      <div class="info">
+          <h3>AUDREY ALLEN NAVA</h3>
+          <span><i class="far fa-user"></i> Kitchen Staff</span>
+          <p>A responsible for ensuring all areas of the kitchen, food prep, 
+          food storage areas, and properly sanitized. Including washing dishes,
+          cooking equipment, etc.</p>
+          <div class="team-icons">
+              <a href="#" class="fab fa-facebook-square"></a>
+              <a href="#" class="fab fa-twitter-square"></a>
+              <a href="#" class="fab fa-instagram"></a>
+          </div>
+      </div>
+  </div>
+  <div class="teamCard">
+      <div class="bg-image">
+          <img src="/img/REIWAImg/REIWACrew/REIWA.jpg" alt="">
+      </div>
+      <div class="pic">
+          <img src="/img/REIWAImg/REIWACrew/Jhobe.jpg" alt="">
+      </div>
+      <div class="info">
+          <h3>JHOBE EDWARD TALACAY</h3>
+          <span><i class="far fa-user"></i> Kitchen Staff</span>
+          <p>A responsible for ensuring all areas of the kitchen, food prep, 
+          food storage areas, and properly sanitized. Including washing dishes,
+          cooking equipment, etc.</p>
+          <div class="team-icons">
+              <a href="#" class="fab fa-facebook-square"></a>
+              <a href="#" class="fab fa-twitter-square"></a>
+              <a href="#" class="fab fa-instagram"></a>
+          </div>
+      </div>
+  </div>
+</div>
+</section>
+<section id="testimonials" class="testimonialsPage">
+  <div class="section-testimonials">
+      <i class="testimonialsIcons fas fa-star"></i>
+      <i class="testimonialsIcons fas fa-star"></i>
+      <i class="testimonialsIcons fas fa-star"></i>
+      <i class="testimonialsIcons fas fa-star"></i>
+      <i class="testimonialsIcons fas fa-star"></i>
+      <h1 class="testimonialsTitle">OUR <span class="testimonials1">C</span>LIENT SAYS</h1>
+  </div>
+  <div class="testimonial-box-container">
+      <div class="testimonial-box">
+          <div class="box-top">
+              <div class="profile">
+                  <div class="profile-img">
+                      <img src="/img/REIWAImg/REIWATestimonials/Customer1.jpg" />
+                  </div>
+                  <div class="name-user">
+                      <strong>Angela Santos</strong>
+                      <span>@Angelasantos</span>
+                  </div>
+              </div>
+              <div class="reviews">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+              </div>
+          </div>
+          <div class="client-comment">
+              <p>We ate twice at this restaurant and the service was attentive, the food was delicious and the prices reasonable.
+              Booking necessary. Will definitely be returning when we holiday next year. I was surprised at how small and cosy this
+              restaurant is! I was expecting a much larger establishment. </p>
+          </div>
+      </div>
+  <div class="testimonial-box">
+      <div class="box-top">
+          <div class="profile">
+               <div class="profile-img">
+                  <img src="/img/REIWAImg/REIWATestimonials/Customer2.jpg" />
+                  </div>
+                  <div class="name-user">
+                      <strong>Hanz Thomas</strong>
+                      <span>@Hanzthomas19</span>
+                  </div>
+              </div>
+              <div class="reviews">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+              </div>
+          </div>
+          <div class="client-comment">
+              <p>Lovely subtle flavours with well put together meals. Not a cheap restaurant but excellent value for the quality of cooking.
+              Look to spend about 1,000 pesos per person for 3 courses but well worth it. If you want to make sure that you eat at Oscars be 
+              sure to book in advance or you could be disappointed.</p>
+          </div>
+      </div>
+      <div class="testimonial-box">
+          <div class="box-top">
+              <div class="profile">
+                  <div class="profile-img">
+                      <img src="/img/REIWAImg/REIWATestimonials/Customer3.jpg" />
+                  </div>
+                  <div class="name-user">
+                      <strong>Ella Lim</strong>
+                      <span>@LimLea</span>
+                  </div>
+              </div>
+              <div class="reviews">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+              </div>
+          </div>
+          <div class="client-comment">
+              <p>Highly recommended! I ordered tonkatsu ramen and takoyaki. I didn’t expect much but was blown away by the quality of both. The broth
+              of the ramen was also really good. I didn't finish the ramen noodles though 🙂. </p>
+          </div>
+      </div>
+  <div class="testimonial-box">
+      <div class="box-top">
+          <div class="profile">
+              <div class="profile-img">
+                  <img src="/img/REIWAImg/REIWATestimonials/Customer4.jpg" />
+                  </div>
+                  <div class="name-user">
+                      <strong>Toni Alexis</strong>
+                      <span>@Alexis_Toni</span>
+                  </div>
+              </div>
+              <div class="reviews">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+              </div>
+          </div>
+          <div class="client-comment">
+              <p>After having issues at our hotel we found this restaurant using their website so we had no idea what to expect, it was
+              absolutely lovely. Friendly, efficient staff and the best food I’ve had in a very long time, i'll recommend this restaurant.</p>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- team section ends-->
+<!-- footer section start-->
+<footer id="contact" class="bg-footerBg footer pt-10 lg:pt-14">
+    <div class="container px-4 mx-auto">
+      <div class="footer-row flex flex-wrap">
+          <div class="footer-col md:px-4 mb-8 md:mb-0 w-2/4 md:w-1/4">
+        <h2 class="footer-col-heading text-gray-300 text-lg mb-3 md:mb-4 font-semibold lg:mb-8">COMPANY</h2>
+        <div class="footer-links flex flex-col">
+          <a href="#" class="text-gray-300 mb-3 md:mb-4 lg:mb-5">Investor</a>
+          <a href="#" class="text-gray-300 mb-3 md:mb-4 lg:mb-5">FeedBack</a>
+          <a href="#" class="text-gray-300">Ads</a>
+        </div>
+      </div>
+        <div class="footer-col md:px-4 mb-8 md:mb-0 w-2/4 md:w-1/4">
+        <h2 class="footer-col-heading text-gray-300 text-lg mb-3 md:mb-4 font-semibold lg:mb-8">ABOUT</h2>
+        <div class="footer-links flex flex-col">
+          <a href="#" class="text-gray-300 mb-3 md:mb-4 lg:mb-5">Gift card</a>
+          <a href="#" class="text-gray-300 mb-3 md:mb-4 lg:mb-5">Card Balance Enquiry</a>
+          <a href="#" class="text-gray-300">FAQ</a>
+        </div>
+      </div>
+        <div class="footer-col md:px-4  w-2/4 md:w-1/4">
+        <h2 class="footer-col-heading text-gray-300 text-lg mb-3 md:mb-4 font-semibold lg:mb-8">LEGAL</h2>
+        <div class="footer-links flex flex-col">
+          <a href="#" class="text-gray-300 mb-3 md:mb-4 lg:mb-5">Disclaimer</a>
+          <a href="#" class="text-gray-300 mb-3 md:mb-4 lg:mb-5">Terms & Conditions</a>
+          <a href="#" class="text-gray-300">Privacy Policy</a>
+        </div>
+      </div>
+          <div class="footer-col md:px-4  w-2/4 md:w-1/4">
+        <h2 class="footer-col-heading text-gray-300 text-lg mb-3 md:mb-4  font-semibold lg:mb-8">SOCIAL LINKS</h2>
+        <div class="footer-social-links flex">
+          <a href="https://www.facebook.com/Reiwa.Anime.Station2019" class="text-white mr-6">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(255, 255, 255, .9);"><path d="M13.397,20.997v-8.196h2.765l0.411-3.209h-3.176V7.548c0-0.926,0.258-1.56,1.587-1.56h1.684V3.127 C15.849,3.039,15.025,2.997,14.201,3c-2.444,0-4.122,1.492-4.122,4.231v2.355H7.332v3.209h2.753v8.202H13.397z"></path></svg>
+          </a>
+          <a href="#" class="text-white mr-6">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(255, 255, 255, .9);"><path d="M19.633,7.997c0.013,0.175,0.013,0.349,0.013,0.523c0,5.325-4.053,11.461-11.46,11.461c-2.282,0-4.402-0.661-6.186-1.809 c0.324,0.037,0.636,0.05,0.973,0.05c1.883,0,3.616-0.636,5.001-1.721c-1.771-0.037-3.255-1.197-3.767-2.793 c0.249,0.037,0.499,0.062,0.761,0.062c0.361,0,0.724-0.05,1.061-0.137c-1.847-0.374-3.23-1.995-3.23-3.953v-0.05 c0.537,0.299,1.16,0.486,1.82,0.511C3.534,9.419,2.823,8.184,2.823,6.787c0-0.748,0.199-1.434,0.548-2.032 c1.983,2.443,4.964,4.04,8.306,4.215c-0.062-0.3-0.1-0.611-0.1-0.923c0-2.22,1.796-4.028,4.028-4.028 c1.16,0,2.207,0.486,2.943,1.272c0.91-0.175,1.782-0.512,2.556-0.973c-0.299,0.935-0.936,1.721-1.771,2.22 c0.811-0.088,1.597-0.312,2.319-0.624C21.104,6.712,20.419,7.423,19.633,7.997z"></path></svg>
+          </a>
+          <a href="#" class="text-white"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill:rgba(255, 255, 255, .9);"><path d="M11.999,7.377c-2.554,0-4.623,2.07-4.623,4.623c0,2.554,2.069,4.624,4.623,4.624c2.552,0,4.623-2.07,4.623-4.624 C16.622,9.447,14.551,7.377,11.999,7.377L11.999,7.377z M11.999,15.004c-1.659,0-3.004-1.345-3.004-3.003 c0-1.659,1.345-3.003,3.004-3.003s3.002,1.344,3.002,3.003C15.001,13.659,13.658,15.004,11.999,15.004L11.999,15.004z"></path><circle cx="16.806" cy="7.207" r="1.078"></circle><path d="M20.533,6.111c-0.469-1.209-1.424-2.165-2.633-2.632c-0.699-0.263-1.438-0.404-2.186-0.42 c-0.963-0.042-1.268-0.054-3.71-0.054s-2.755,0-3.71,0.054C7.548,3.074,6.809,3.215,6.11,3.479C4.9,3.946,3.945,4.902,3.477,6.111 c-0.263,0.7-0.404,1.438-0.419,2.186c-0.043,0.962-0.056,1.267-0.056,3.71c0,2.442,0,2.753,0.056,3.71 c0.015,0.748,0.156,1.486,0.419,2.187c0.469,1.208,1.424,2.164,2.634,2.632c0.696,0.272,1.435,0.426,2.185,0.45 c0.963,0.042,1.268,0.055,3.71,0.055s2.755,0,3.71-0.055c0.747-0.015,1.486-0.157,2.186-0.419c1.209-0.469,2.164-1.424,2.633-2.633 c0.263-0.7,0.404-1.438,0.419-2.186c0.043-0.962,0.056-1.267,0.056-3.71s0-2.753-0.056-3.71C20.941,7.57,20.801,6.819,20.533,6.111z M19.315,15.643c-0.007,0.576-0.111,1.147-0.311,1.688c-0.305,0.787-0.926,1.409-1.712,1.711c-0.535,0.199-1.099,0.303-1.67,0.311 c-0.95,0.044-1.218,0.055-3.654,0.055c-2.438,0-2.687,0-3.655-0.055c-0.569-0.007-1.135-0.112-1.669-0.311 c-0.789-0.301-1.414-0.923-1.719-1.711c-0.196-0.534-0.302-1.099-0.311-1.669c-0.043-0.95-0.053-1.218-0.053-3.654 c0-2.437,0-2.686,0.053-3.655c0.007-0.576,0.111-1.146,0.311-1.687c0.305-0.789,0.93-1.41,1.719-1.712 c0.534-0.198,1.1-0.303,1.669-0.311c0.951-0.043,1.218-0.055,3.655-0.055c2.437,0,2.687,0,3.654,0.055 c0.571,0.007,1.135,0.112,1.67,0.311c0.786,0.303,1.407,0.925,1.712,1.712c0.196,0.534,0.302,1.099,0.311,1.669 c0.043,0.951,0.054,1.218,0.054,3.655c0,2.436,0,2.698-0.043,3.654H19.315z"></path></svg></a>
+        </div>
+      </div>
+      </div>
+    
+     <div class="footer-copyright text-sm sm:text-md text-center mt-10 py-4 lg:py-6 border-t border-gray-600 text-gray-400"> 
+      All Rights Reserved. Copyright © Reiwa Anime Station Ltd.
+     </div> 
+    </div>
+  </footer>
+<!-- footer section ends-->

@@ -1,0 +1,459 @@
+<!-- register section -->
+<div class="signup bg-secondary">
+  <div class="container px-4 mx-auto">
+    <div class="fit-to-screen py-6 flex flex-col items-center justify-center">
+      <div class="sign-up flex flex-col bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 w-full max-w-md">
+        <div class="font-medium self-center text-lg lg:text-xl uppercase text-gray-800 mb-2">
+          Sign up to create account
+        </div>
+       <!--- 
+        <button
+          class="relative mt-6 py-2 border border-facebook text-sm bg-facebook text-white"
+          onclick="window.location.href='/auth/facebook'"
+        >
+          <span
+            class="absolute left-0 top-0 flex items-center justify-center h-full w-10 text-white"
+            ><img src="/img/facebook-app-symbol.svg" alt="" class="w-4"
+          /></span>
+          <span>Sign up with Facebook</span>
+        </button>
+
+        <button
+          class="relative mt-3 border border-gray-500 py-2 text-sm bg-white text-gray hover:bg-gray-50"
+          onclick="window.location.href='/auth/google'"
+        >
+          <span
+            class="absolute left-0 top-0 flex items-center justify-center h-full w-10"
+            ><img src="/img/search.svg" alt="" class="w-4"
+          /></span>
+          <span>Sign up with Google</span>
+        </button>
+
+        <div class="relative mt-10 h-px bg-gray-300">
+          <div class="absolute left-0 top-0 flex justify-center w-full -mt-2">
+            <span class="bg-white px-4 text-xs text-gray-500 uppercase"
+              >Or Sign up With Email</span
+            >
+          </div>
+        </div>--->
+        <div class="mt-10">
+          <form action="/register" method="POST" autocomplete="off">
+            <%if(messages.error) {%>
+            <span class="block p-2 text-red-500 text-sm mb-2 bg-red-100"
+              ><%=messages.error %>
+            </span>
+            <%} %>
+            <div class="flex flex-col mb-6">
+              <label
+                for="Firstname"
+                class="mb-1 text-sm sm:text-sm tracking-wide text-gray-600"
+                >First Name:</label
+              >
+              <div class="relative">
+                <div
+                  class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400"
+                >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                </svg>
+                </div>
+
+                <input
+                  id="Firstname"
+                  name="Firstname"
+                  class="text-sm sm:text-base rounded-full placeholder-gray-500 pl-10 pr-4 border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800 placeholder-opacity-75"
+                  autofocus placeholder="John"
+                  required
+                />
+              </div>
+            </div>
+            <div class="flex flex-col mb-6">
+              <label
+                for="Lastname"
+                class="mb-1 text-sm sm:text-sm tracking-wide text-gray-600"
+                >Last Name:</label
+              >
+              <div class="relative">
+                <div
+                  class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400"
+                >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                </svg>
+                </div>
+
+                <input
+                  id="Lastname"
+                  name="Lastname"
+                  class="text-sm sm:text-base rounded-full placeholder-gray-500 pl-10 pr-4 border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800 placeholder-opacity-75"
+                  autofocus placeholder="Doe"
+                  required
+                />
+              </div>
+            </div>
+            <div class="flex flex-col mb-6">
+              <label
+                for="phonenumber"
+                class="mb-1 text-sm sm:text-sm tracking-wide text-gray-600"
+                >Phone Number:</label
+              >
+              <div class="relative">
+                <div
+                  class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400"
+                >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+                </div>
+
+                <input
+                  id="phonenumber"
+                  name="phonenumber"
+                  class="text-sm sm:text-base rounded-full placeholder-gray-500 pl-10 pr-4 border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800 placeholder-opacity-75"
+                  autofocus placeholder="09613190728"
+                  type="number"
+                  pattern="[0-9]{4}[0-9]{3}[0-9]{4}" 
+                  minlength="11"
+                  maxlength="11"
+                  required
+                />
+              </div>
+            </div>
+            <div class="flex flex-col mb-6">
+              <label
+                for="email"
+                class="mb-1 text-sm sm:text-sm tracking-wide text-gray-600"
+                >Email Address:</label
+              >
+              <div class="relative">
+                <div
+                  class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400"
+                >
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+
+                <input
+                  id="email"
+                  name="email"
+                  class="text-sm sm:text-base rounded-full placeholder-gray-500 pl-10 pr-4 border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800 placeholder-opacity-75"
+                  pattern="[a-zA-Z0-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+" 
+                  autofocus placeholder="example@example.com"
+                  required
+                />
+              </div>
+            </div>
+            <div class="flex flex-col mb-6">
+              <label
+                for="home_address"
+                class="mb-1 text-sm sm:text-sm tracking-wide text-gray-600"
+                >Address:</label
+              >
+              <div class="relative">
+                <div
+                  class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400"
+                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                  <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                </svg>
+                </div>
+
+                <input
+                  id="home_address"
+                  name="home_address"
+                  class="text-sm sm:text-base rounded-full placeholder-gray-500 pl-10 pr-4 border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800 placeholder-opacity-75"
+                  autofocus placeholder="18 N.Y Georgia St."
+                  type="text"
+                  required
+                />
+              </div>
+            </div>
+            <div class="flex flex-col mb-6">
+              <label
+                for="cities"
+                class="mb-1 text-sm sm:text-sm tracking-wide text-gray-600"
+                >City/Municipality:</label
+              >
+              <div class="relative">
+                <div
+                  class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400"
+                >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd" />
+                </svg>
+                </div>
+                <select id="cities" name="cities" class="text-sm sm:text-base rounded-full placeholder-gray-500 pl-10 pr-4 border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800 placeholder-opacity-75 form-control" 
+                title="Must contain a preferred city" autofocus required>
+                      <option disabled selected>Select City</option>
+                      <option>Pasig</option>
+                      <option>Taguig</option>
+                      <option>Makati</option>
+                      <option>Cainta</option>
+                      <option>Pateros</option>
+                      <option>Quezon</option>
+                      <option>Marikina</option>
+                      <option>Mandaluyong</option>
+                  </select>
+              </div>
+            </div>
+            <div class="flex flex-col mb-6">
+              <label
+                for="zipcode"
+                class="mb-1 text-sm sm:text-sm tracking-wide text-gray-600"
+                >Zipcode:</label
+              >
+              <div class="relative">
+                <div
+                  class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400"
+                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-123" viewBox="0 0 16 16">
+                  <path d="M2.873 11.297V4.142H1.699L0 5.379v1.137l1.64-1.18h.06v5.961h1.174Zm3.213-5.09v-.063c0-.618.44-1.169 1.196-1.169.676 0 1.174.44 1.174 1.106 0 .624-.42 1.101-.807 1.526L4.99 10.553v.744h4.78v-.99H6.643v-.069L8.41 8.252c.65-.724 1.237-1.332 1.237-2.27C9.646 4.849 8.723 4 7.308 4c-1.573 0-2.36 1.064-2.36 2.15v.057h1.138Zm6.559 1.883h.786c.823 0 1.374.481 1.379 1.179.01.707-.55 1.216-1.421 1.21-.77-.005-1.326-.419-1.379-.953h-1.095c.042 1.053.938 1.918 2.464 1.918 1.478 0 2.642-.839 2.62-2.144-.02-1.143-.922-1.651-1.551-1.714v-.063c.535-.09 1.347-.66 1.326-1.678-.026-1.053-.933-1.855-2.359-1.845-1.5.005-2.317.88-2.348 1.898h1.116c.032-.498.498-.944 1.206-.944.703 0 1.206.435 1.206 1.07.005.64-.504 1.106-1.2 1.106h-.75v.96Z"/>
+                </svg>
+                </div>
+
+                <input
+                  id="zipcode"
+                  name="zipcode"
+                  class="text-sm sm:text-base rounded-full placeholder-gray-500 pl-10 pr-4 border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800 placeholder-opacity-75"
+                  autofocus pattern="^(?(^00000(|-0000))|(\d{5}(|-\d{4})))$"
+                  maxlength="5"
+                  type="number"
+                  placeholder="1640"
+                  title="Must contain a valid zipcode"
+                  required
+                />
+              </div>
+            </div>
+            <div class="flex flex-col mb-6">
+              <label
+                for="landmarks"
+                class="mb-1 text-sm sm:text-sm tracking-wide text-gray-600"
+                >Landmark:</label
+              >
+              <div class="relative">
+                <div
+                  class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400"
+                >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-fill" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"/>
+                </svg>
+                </div>
+
+                <input
+                  id="landmarks"
+                  name="landmarks"
+                  class="text-sm sm:text-base rounded-full placeholder-gray-500 pl-10 pr-4 border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800 placeholder-opacity-75"
+                  autofocus placeholder="Near at"
+                  required
+                />
+              </div>
+            </div>
+            <div class="flex flex-col mb-6" x-data="{ show: true }">
+              <label
+                for="password"
+                class="mb-1 text-sm sm:text-sm tracking-wide text-gray-600"
+                >Password:</label
+              >
+              <div class="relative">
+                <div
+                  class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400"
+                >
+                  <span>
+                    <svg
+                      class="h-6 w-6"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                      />
+                    </svg>
+                  </span>
+                </div>
+
+                <div
+                  class="inline-flex items-center justify-center absolute right-0 top-0 h-full w-10 text-gray-400"
+                >
+                  <span>
+                    <svg
+                      class="h-6 w-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      @click="show = !show"
+                      :class="{'hidden': !show, 'block':show }"
+                    >
+                      <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                      <path
+                        fill-rule="evenodd"
+                        d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    <svg
+                      class="h-6 w-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      @click="show = !show"
+                      :class="{'block': !show, 'hidden':show }"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-1.473-1.473A10.014 10.014 0 0019.542 10C18.268 5.943 14.478 3 10 3a9.958 9.958 0 00-4.512 1.074l-1.78-1.781zm4.261 4.26l1.514 1.515a2.003 2.003 0 012.45 2.45l1.514 1.514a4 4 0 00-5.478-5.478z"
+                        clip-rule="evenodd"
+                      />
+                      <path
+                        d="M12.454 16.697L9.75 13.992a4 4 0 01-3.742-3.741L2.335 6.578A9.98 9.98 0 00.458 10c1.274 4.057 5.065 7 9.542 7 .847 0 1.669-.105 2.454-.303z"
+                      />
+                    </svg>
+                  </span>
+                </div>
+
+                <input
+                  id="password"
+                  :type="show ? 'password' : 'text'"
+                  name="password"
+                  class="text-sm sm:text-base rounded-full placeholder-gray-500 pl-10 pr-10 border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800 placeholder-opacity-75"
+                  placeholder="Password"
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                  maxlength="16"
+                  required
+                />
+              </div>
+              <p class="text-md mt-1 px-1 pass-error text-gray-600 text-sm">
+                Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and
+                one special character (!@#$%^&*)
+              </p>
+            </div>
+            <div class="flex flex-col mb-6" x-data="{ show: true }">
+              <label
+                for="confirmPassword"
+                class="mb-1 text-sm sm:text-sm tracking-wide text-gray-600"
+                >Confirm password:</label
+              >
+              <div class="relative">
+                <div
+                  class="inline-flex items-center justify-center absolute left-0 top-0 h-full w-10 text-gray-400"
+                >
+                  <span>
+                    <svg
+                      class="h-6 w-6"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                      />
+                    </svg>
+                  </span>
+                </div>
+
+                <div
+                  class="inline-flex items-center justify-center absolute right-0 top-0 h-full w-10 text-gray-400"
+                >
+                  <span>
+                    <svg
+                      class="h-6 w-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      @click="show = !show"
+                      :class="{'hidden': !show, 'block':show }"
+                    >
+                      <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                      <path
+                        fill-rule="evenodd"
+                        d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    <svg
+                      class="h-6 w-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      @click="show = !show"
+                      :class="{'block': !show, 'hidden':show }"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-1.473-1.473A10.014 10.014 0 0019.542 10C18.268 5.943 14.478 3 10 3a9.958 9.958 0 00-4.512 1.074l-1.78-1.781zm4.261 4.26l1.514 1.515a2.003 2.003 0 012.45 2.45l1.514 1.514a4 4 0 00-5.478-5.478z"
+                        clip-rule="evenodd"
+                      />
+                      <path
+                        d="M12.454 16.697L9.75 13.992a4 4 0 01-3.742-3.741L2.335 6.578A9.98 9.98 0 00.458 10c1.274 4.057 5.065 7 9.542 7 .847 0 1.669-.105 2.454-.303z"
+                      />
+                    </svg>
+                  </span>
+                </div>
+
+                <input
+                  id="confirmPassword"
+                  :type="show ? 'password' : 'text'"
+                  name="confirmPassword"
+                  class="text-sm sm:text-base rounded-full placeholder-gray-500 pl-10 pr-10 border border-gray-400 w-full py-2 focus:outline-none focus:border-gray-800 placeholder-opacity-75"
+                  placeholder="Confirm Password"
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                  maxlength="16"
+                  required
+                />
+              </div>
+            </div>
+            <div class="flex w-full">
+              <button
+                type="submit"
+                class="flex items-center rounded-full justify-center focus:outline-none text-white text-sm sm:text-base btn-primary py-2.5 w-full transition duration-300 ease-in-out"
+              >
+                <span class="mr-2 text-md uppercase">Signup</span>
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="flex justify-center items-center mt-6">
+          <a
+            href="/login"
+            class="inline-flex items-center font-bold text-gray-500 hover:text-gray-800 text-sm text-center"
+          >
+            <!-- <span>
+              <svg
+                class="h-5 w-5"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+                />
+              </svg>
+            </span> -->
+            <span class="ml-2">Already have an account?</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- register section ends -->

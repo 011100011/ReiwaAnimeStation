@@ -1,0 +1,57 @@
+<!-- orders-wrapper -->
+<div class="orders-wrapper py-10 bg-secondary">
+    <%if(user.email == "mainAdmin@gmail.com"){%>
+        <div class="container mx-auto px-4">
+          <h1 class="font-bold text-xl mb-8">Welcome Admin of Main</h1>
+
+          <% } else %>
+    <%if(user.email == "mainCashier@gmail.com"){%>
+    <div class="container mx-auto px-4">
+      <h1 class="font-bold text-xl mb-8">Welcome Cashier of Main</h1>
+      <a
+      href="/admin/orders"
+      class="titleText transition duration-300 ease-in-out"
+      >View Orders</a
+    >
+      <% } else %>
+      <%if(user.email == "makatiCashier@gmail.com"){%>
+        <div class="container mx-auto px-4">
+          <h1 class="font-bold text-xl mb-8">Welcome Cashier of Makati</h1>
+          <a
+          href="/admin/ordersMakati"
+          class="titleText transition duration-300 ease-in-out"
+          >View Orders</a
+        >
+          <% } else %>
+          <%if(user.email == "ortigasCashier@gmail.com"){%>
+            <div class="container mx-auto px-4">
+              <h1 class="font-bold text-xl mb-8">Welcome Cashier of Ortigas</h1>
+              <a
+              href="/admin/ordersOrtigas"
+              class="titleText transition duration-300 ease-in-out"
+              >View Orders</a
+            >
+              <% } else %>
+              <%if(user.email == "riderMakati@gmail.com"){%>
+                <div class="container mx-auto px-4">
+                  <h1 class="font-bold text-xl mb-8">Welcome Rider of Makati</h1>
+                  <a
+                  href="/admin/makatiRider"
+                  class="titleText transition duration-300 ease-in-out">View Orders</a>
+                <% } else %>
+                <%if(user.email == "riderOrtigas@gmail.com"){%>
+                  <div class="container mx-auto px-4">
+                    <h1 class="font-bold text-xl mb-8">Welcome Rider of Ortigas</h1>
+                    <a
+                    href="/admin/ortigasRider"
+                    class="titleText transition duration-300 ease-in-out">View Orders</a>
+                <% } else %>
+                <%if(user.email == "riderMain@gmail.com"){%>
+                  <div class="container mx-auto px-4">
+                    <h1 class="font-bold text-xl mb-8">Welcome Rider of Main Branch</h1>
+                    <a
+                    href="/admin/mainRider"
+                    class="titleText transition duration-300 ease-in-out">View Orders</a>
+                <% } else %>
+    </div>
+  </div>

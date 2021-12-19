@@ -1,0 +1,346 @@
+<!-- profile section -->
+<section class="py-8 bg-secondary status-wrapper">
+  <div class="container px-4 mx-auto">
+    <div class="flex">
+      <div class="left w-1/4 hidden lg:block">
+        <div class="profile-photo p-3 flex mb-3 bg-white">
+          <img
+            src="/img/profile-pic-male.svg"
+            alt=""
+            height="50px"
+            width="50px"
+          />
+
+          <div class="profile-name pl-4 pt-2">
+            <p class="profile-grettings">Hello,</p>
+            <p class="font-semibold">
+              <%=user.Firstname %> <%=user.Lastname %>
+            </p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-block bg-primary">
+            <a href="javascript:void(0)" class="text-white flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                class="h-6 w-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                />
+              </svg>
+              My Profile</a
+            >
+          </div>
+          <div class="panel-block bg-white">
+            <a href="/customer/orders/" class="flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                xmlns:svgjs="http://svgjs.com/svgjs"
+                version="1.1"
+                width="24"
+                height="24"
+                x="0"
+                y="0"
+                viewBox="0 0 511.999 511.999"
+                style="enable-background: new 0 0 512 512"
+                xml:space="preserve"
+                class=""
+              >
+                <g>
+                  <g xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path
+                        d="M476.919,141.304l-0.379-0.655c-0.525-1.089-1.131-2.132-1.807-3.123L403.504,14.38C398.373,5.51,388.821,0,378.574,0    H133.437c-10.263,0-19.823,5.523-24.952,14.417l-72.39,125.586c-0.652,1.132-1.122,2.316-1.454,3.519    c-1.019,2.751-1.579,5.724-1.579,8.826v324.365c0,19.456,15.829,35.285,35.285,35.285h375.304    c19.456,0,35.285-15.829,35.285-35.285V151.159c0-0.435-0.013-0.867-0.036-1.297C479.104,146.975,478.478,143.998,476.919,141.304    z M271.518,30.011h106.358l56.032,96.873h-162.39V30.011z M134.136,30.011h107.371v96.873H78.296L134.136,30.011z     M448.925,476.714c0,2.908-2.366,5.274-5.274,5.274H68.347c-2.908,0-5.274-2.366-5.274-5.274V156.895h385.852V476.714z"
+                        fill="#ff0157"
+                        data-original="#000000"
+                        style=""
+                        class=""
+                      />
+                    </g>
+                  </g>
+                  <g xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path
+                        d="M324.115,270.026c-5.859-5.859-15.361-5.859-21.221,0l-67.002,67.002l-25.764-25.764c-5.859-5.859-15.361-5.859-21.221,0    c-5.86,5.859-5.86,15.361,0,21.221l36.376,36.374c2.93,2.93,6.771,4.396,10.61,4.396c3.839,0,7.681-1.466,10.61-4.396    l77.612-77.612C329.975,285.387,329.975,275.886,324.115,270.026z"
+                        fill="#fe5f1e"
+                        data-original="#000000"
+                      />
+                    </g>
+                  </g>
+                  <g xmlns="http://www.w3.org/2000/svg"></g>
+                  <g xmlns="http://www.w3.org/2000/svg"></g>
+                  <g xmlns="http://www.w3.org/2000/svg"></g>
+                  <g xmlns="http://www.w3.org/2000/svg"></g>
+                  <g xmlns="http://www.w3.org/2000/svg"></g>
+                  <g xmlns="http://www.w3.org/2000/svg"></g>
+                  <g xmlns="http://www.w3.org/2000/svg"></g>
+                  <g xmlns="http://www.w3.org/2000/svg"></g>
+                  <g xmlns="http://www.w3.org/2000/svg"></g>
+                  <g xmlns="http://www.w3.org/2000/svg"></g>
+                  <g xmlns="http://www.w3.org/2000/svg"></g>
+                  <g xmlns="http://www.w3.org/2000/svg"></g>
+                  <g xmlns="http://www.w3.org/2000/svg"></g>
+                  <g xmlns="http://www.w3.org/2000/svg"></g>
+                  <g xmlns="http://www.w3.org/2000/svg"></g>
+                </g>
+              </svg>
+
+              Orders</a
+            >
+          </div>
+          <div class="panel-block bg-white">
+            <a href="/logout" class="flex items-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="#ff0157"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                />
+              </svg>
+              Logout
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="right bg-white lg:w-3/4 lg:ml-5 w-full">
+        <div class="sm:pt-6 px-5 py-6 sm:pb-12 sm:px-8">
+          <!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>New Item</title>
+</head>
+<body>
+   <div class="container">
+       <h1 class="mb-4"><span class="about1">E</span>diting: <%= user.Firstname%></h1>
+       <form action="/viewItem3/<%= user.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>First name</label>
+            <input                       
+            class="
+            rounded-full
+            border
+            p-2.5
+            form-control
+            w-full
+            border-gray-300
+            text-sm
+            h-12
+            focus:border focus:border-gray-800
+          " placeholder="Title" name="Firstname" value="<%= user.Firstname%>" required></input>
+        </div>
+
+        <div class="form-group">
+          <label >Last name</label>
+          <input                       class="
+          rounded-full
+          border
+          p-2.5
+          form-control
+          w-full
+          border-gray-300
+          text-sm
+          h-12
+          focus:border focus:border-gray-800
+        " placeholder="Title" name="Lastname" value="<%= user.Lastname%>" required></input>
+      </div>
+
+      <div class="form-group">
+        <label >Phone number</label>
+        <input                       class="
+        rounded-full
+        border
+        p-2.5
+        form-control
+        w-full
+        border-gray-300
+        text-sm
+        h-12
+        focus:border focus:border-gray-800
+      " 
+      type="number"
+      pattern="[0-9]{4}[0-9]{3}[0-9]{4}" 
+      minlength="11"
+      maxlength="11"
+      placeholder="Title" name="phonenumber" value="<%= user.phonenumber%>" required></input>
+    </div>
+
+      <div class="form-group">
+        <label >Street Address</label>
+        <input                       class="
+        rounded-full
+        border
+        p-2.5
+        form-control
+        w-full
+        border-gray-300
+        text-sm
+        h-12
+        focus:border focus:border-gray-800
+      " placeholder="Title" name="home_address" value="<%= user.home_address%>" required></input>
+    </div>
+
+    <div class="form-group">
+      <label >Select City</label>
+      <select name="cities" value="<%= user.cities%>" class="py-2 px-8 rounded-full border p-3 form-control
+        input-blocked border-gray-300 text-sm h-12 focus:border 
+        focus:border-gray-800 w-full focus:outline-none" 
+        title="Must contain a preferred city">
+        <% if(user.cities == "Pasig"){ %>
+          <option>Pasig</option>
+          <option>Taguig</option>
+          <option>Makati</option>
+          <option>Cainta</option>
+          <option>Pateros</option>
+          <option>Quezon</option>
+          <option>Marikina</option>
+          <option>Mandaluyong</option>
+          <% } else%>
+          <% if(user.cities == "Taguig"){ %>
+            <option>Taguig</option>
+            <option>Pasig</option>
+            <option>Makati</option>
+            <option>Cainta</option>
+            <option>Pateros</option>
+            <option>Quezon</option>
+            <option>Marikina</option>
+            <option>Mandaluyong</option>
+            <% } else%>
+            <% if(user.cities == "Makati"){ %>
+              <option>Makati</option>
+              <option>Pasig</option>
+              <option>Taguig</option>
+              <option>Cainta</option>
+              <option>Pateros</option>
+              <option>Quezon</option>
+              <option>Marikina</option>
+              <option>Mandaluyong</option>
+              <% } else%>
+              <% if(user.cities == "Cainta"){ %>
+                <option>Cainta</option>
+                <option>Pasig</option>
+                <option>Taguig</option>
+                <option>Makati</option>
+                <option>Pateros</option>
+                <option>Quezon</option>
+                <option>Marikina</option>
+                <option>Mandaluyong</option>
+                <% } else%>
+                <% if(user.cities == "Pateros"){ %>
+                  <option>Pateros</option>
+                  <option>Pasig</option>
+                  <option>Taguig</option>
+                  <option>Makati</option>
+                  <option>Cainta</option>
+                  <option>Quezon</option>
+                  <option>Marikina</option>
+                  <option>Mandaluyong</option>
+                  <% } else%>
+                  <% if(user.cities == "Quezon"){ %>
+                    <option>Quezon</option>
+                    <option>Pasig</option>
+                    <option>Taguig</option>
+                    <option>Makati</option>
+                    <option>Cainta</option>
+                    <option>Pateros</option>
+                    <option>Marikina</option>
+                    <option>Mandaluyong</option>
+                    <% } else%>
+                    <% if(user.cities == "Marikina"){ %>
+                      <option>Marikina</option>
+                      <option>Pasig</option>
+                      <option>Taguig</option>
+                      <option>Makati</option>
+                      <option>Cainta</option>
+                      <option>Pateros</option>
+                      <option>Quezon</option>
+                      <option>Mandaluyong</option>
+                      <% } else%>
+                      <% if(user.cities == "Mandaluyong"){ %>
+                        <option>Mandaluyong</option>
+                        <option>Pasig</option>
+                        <option>Taguig</option>
+                        <option>Makati</option>
+                        <option>Cainta</option>
+                        <option>Pateros</option>
+                        <option>Quezon</option>
+                        <option>Marikina</option>
+                        <% } else%>
+
+      </select>
+  </div>
+
+  <div class="form-group">
+    <label >Land Mark</label>
+    <input                       class="
+    rounded-full
+    border
+    p-2.5
+    form-control
+    w-full
+    border-gray-300
+    text-sm
+    h-12
+    focus:border focus:border-gray-800
+  " placeholder="Title" name="landmarks" value="<%= user.landmarks%>" required></input>
+</div>
+
+<div class="form-group">
+  <label >Zip code</label>
+  <input                       class="
+  rounded-full
+  border
+  p-2.5
+  form-control
+  w-full
+  border-gray-300
+  text-sm
+  h-12
+  focus:border focus:border-gray-800
+"       type="number" placeholder="Title" name="zipcode" value="<%= user.zipcode%>" required></input>
+</div>
+
+        <div class="form-group">
+          <br>
+            <button type="submit"                     
+            class="
+            py-2.5
+            mt-4
+            px-6
+            text-sm
+            btn-primary
+            text-white
+            uppercase
+            font-semibold
+            transition
+            duration-300
+            ease-in-out
+            hover:bg-primaryHover
+            rounded-full
+          ">Save</button>
+          <a href="/customer/profile" class="btn btn-warning ml-4">Cancel</a>
+        </div>
+       </form>
+   </div>
+</body>
+</html>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

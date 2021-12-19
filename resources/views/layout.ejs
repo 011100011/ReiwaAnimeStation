@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="text/javascript">
+      if (window.location.hash && window.location.hash == "#_=_") {
+        if (window.history && history.pushState) {
+          window.history.pushState(
+            "",
+            document.title,
+            window.location.pathname
+          );
+        } else {
+          // Prevent scrolling by storing the page's current scroll offset
+          var scroll = {
+            top: document.body.scrollTop,
+            left: document.body.scrollLeft,
+          };
+          window.location.hash = "";
+          // Restore the scroll offset, should be flicker free
+          document.body.scrollTop = scroll.top;
+          document.body.scrollLeft = scroll.left;
+        }
+      }
+    </script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <script src="https://kit.fontawesome.com/8565ad2559.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/REIWAImg/REIWAImages/REIWACirleImage.png">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <title>REIWA ANIME STATION</title>
+   
+    <link rel="stylesheet" href="/css/app.css" />
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="py-2.5 md:py-3.5 border-b">
+      <% if(!user){ %>
+      <div class="container mx-auto px-4">
+        <div class="relative flex items-center justify-between">
+          <a href="/"> <img src="/img/REIWAImg/REIWAIcon/logo.ico" alt="branding" class="inline-block"/>REIWA ANIME STATION</a>
+          <!-- Mobile menu button-->
+          <div class="absolute inset-y-0 right-0 flex items-center">
+            <button
+              class="inline-flex items-center justify-center text-gray-400 hover:text-gray-800 block md:hidden"
+              aria-expanded="false"
+             
+            >
+              <span class="sr-only">Open main menu</span>
+              <!-- Icon when menu is closed. -->
+              <!--
+            Heroicon name: outline/menu
+
+            Menu open: "hidden", Menu closed: "block"
+          -->
+          <span id="close-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#000">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </span>
+          <span id="toggle-open">
+             <svg
+                class="block h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="#000"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+          </span>
+            </button>
+          </div>
+          <div class="hidden md:block">
+            <ul class="flex items-center">
+              <li class="ml-8">
+                <a
+                  href="/"
+                  class="titleText transition duration-300 ease-in-out"
+                  >Home</a
+                >
+              </li>
+              <li class="ml-8">
+                <div class="relative inline-block text-left">
+                  <div>
+                    <button
+                      type="button"
+                      class="inline-flex item-center justify-center w-full rounded-md font-medium text-gray-700 titleText transition duration-300 ease-in-out"
+                      id="options-menu2"
+                      aria-expanded="true"
+                      aria-haspopup="true"
+                    >
+                      About
+                      <!-- Heroicon name: solid/chevron-down -->
+                      <svg
+                        class="ml-1 mt-0.5 h-5 w-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                        id="options-menu2"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div
+                    class="origin-top-right dropdown-menu2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="options-menu2"
+                  >
+                    <div role="none" class="py-1">
+                      <a
+                        href="/#about"
+                        class="block p-3 flex items-center  text-gray-700 hover:underline subTitleText border-b border-gray-100"
+                        role="menuitem"
+                        ><span class="mr-4"><i class="fas fa-info-circle"></i></span>About Us</a>
+                      <a
+                        href="/#team"
+                        class="block p-3 text-gray-700 hover:underline  flex items-center subTitleText border-b border-gray-100"
+                        role="menuitem"
+                        ><span class="mr-4"><i class="fas fa-users"></i></span>Our Team</a>
+                      <a
+                        href="/#testimonials"
+                        class="block p-3 text-gray-700 hover:underline  flex items-center subTitleText border-b border-gray-100"
+                        role="menuitem"
+                        ><span class="mr-4"><i class="fas fa-comments"></i></span>Testimonials</a>
+                      <a
+                        href="/#contact"
+                        class="block p-3 text-gray-700 hover:underline  flex items-center subTitleText border-b border-gray-100"
+                        role="menuitem"
+                        ><span class="mr-4"><i class="fas fa-phone-alt"></i></span>Contact Us</a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              
+              <li class="ml-8">
+                <a
+                  href="/#menu"
+                  class="titleText transition duration-300 ease-in-out"
+                  >Menu</a
+                >
+              </li>
+              <li class="ml-8">
+                <a
+                  href="/offers"
+                  class="titleText transition duration-300 ease-in-out"
+                  >Offers</a
+                >
+              </li>
+              <% if(user){ %>
+              <li class="ml-8">
+                <div class="relative inline-block text-left">
+                  <div>
+                    <button
+                      type="button"
+                      class="inline-flex item-center justify-center w-full rounded-md font-medium text-gray-700 titleText transition duration-300 ease-in-out"
+                      id="options-menu"
+                      aria-expanded="true"
+                      aria-haspopup="true"
+                    >
+                      My Account
+                      <!-- Heroicon name: solid/chevron-down -->
+                      <svg
+                        class="ml-1 mt-0.5 h-5 w-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                        id="options-menu"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div
+                    class="origin-top-right dropdown-menu rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="options-menu"
+                  >
+                    <div role="none" class="py-1">
+                      <a
+                        href="/customer/profile/"
+                        class="block p-3 flex items-center text-gray-700 hover:underline subTitleText border-b border-gray-100"
+                        role="menuitem"
+                        ><span class="mr-4"><i class="fas fa-user-circle"></i></span>Profile</a>
+                      <a
+                        href="<%=user.role=== "admin" ? '/admin/orders' : '/customer/orders' %>"
+                        class="block p-3 text-gray-700 hover:underline  flex items-center subTitleText border-b border-gray-100"
+                        role="menuitem"
+                        ><span class="mr-4"><i class="fas fa-clipboard-check"></i></span>Orders</a>
+                      <a
+                        href="/Logout"
+                        class="block p-3 text-gray-700 hover:underline flex items-center subTitleText"
+                        role="menuitem"
+                        ><span class="mr-4"><i class="fas fa-power-off"></i></span>Logout</a>
+                    </div>
+                  </div>
+                </div>
+               
+            
+              </li>
+              <% } else {%>
+              <li class="ml-8">
+                <a
+                  href="/login"
+                  class="titleText transition duration-300 ease-in-out"
+                  >Login</a
+                >
+              </li>
+              <% } %>
+              <li class="ml-8">
+                <a
+                  href="/cart"
+                  class="inline-block px-10 btn-primary py-1 rounded-full transition duration-300 ease-in-out flex item-center text-white shadow"
+                  ><img
+                    src="/img/shopping-cart.svg"
+                    style="width: 25px"
+                    alt="cart-icon"
+                  />
+                  <span class="text-white font-bold pl-px ml-2" id="cartCounter"
+                    ><%= session.cart ? session.cart.totalQty : '' %>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+     
+      <% } else if(user.role == "customer") {%>
+      <div class="container mx-auto px-4">
+        <div class="relative flex items-center justify-between">
+          <a href="/"> <img src="/img/REIWAImg/REIWAIcon/logo.ico" alt="branding" class="inline-block"/>REIWA ANIME STATION</a>
+          <!-- Mobile menu button-->
+          <div class="absolute inset-y-0 right-0 flex items-center">
+            <button
+              class="inline-flex items-center justify-center text-gray-400 hover:text-gray-800 block md:hidden"
+              aria-expanded="false"
+             
+            >
+              <span class="sr-only">Open main menu</span>
+              <!-- Icon when menu is closed. -->
+              <!--
+            Heroicon name: outline/menu
+
+            Menu open: "hidden", Menu closed: "block"
+          -->
+          <span id="close-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#000">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </span>
+          <span id="toggle-open">
+             <svg
+                class="block h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="#000"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+          </span>
+            </button>
+          </div>
+          <div class="hidden md:block">
+            <ul class="flex items-center">
+              <li class="ml-8">
+                <a
+                  href="/"
+                  class="titleText transition duration-300 ease-in-out"
+                  >Home</a
+                >
+              </li>
+              <li class="ml-8">
+                <div class="relative inline-block text-left">
+                  <div>
+                    <button
+                      type="button"
+                      class="inline-flex item-center justify-center w-full rounded-md font-medium text-gray-700 titleText transition duration-300 ease-in-out"
+                      id="options-menu2"
+                      aria-expanded="true"
+                      aria-haspopup="true"
+                    >
+                      About
+                      <!-- Heroicon name: solid/chevron-down -->
+                      <svg
+                        class="ml-1 mt-0.5 h-5 w-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                        id="options-menu2"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div
+                    class="origin-top-right dropdown-menu2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="options-menu2"
+                  >
+                    <div role="none" class="py-1">
+                      <a
+                        href="/#about"
+                        class="block p-3 flex items-center  text-gray-700 hover:underline subTitleText border-b border-gray-100"
+                        role="menuitem"
+                        ><span class="mr-4"><i class="fas fa-info-circle"></i></span>About Us</a>
+                      <a
+                        href="/#team"
+                        class="block p-3 text-gray-700 hover:underline  flex items-center subTitleText border-b border-gray-100"
+                        role="menuitem"
+                        ><span class="mr-4"><i class="fas fa-users"></i></span>Our Team</a>
+                      <a
+                        href="/#testimonials"
+                        class="block p-3 text-gray-700 hover:underline  flex items-center subTitleText border-b border-gray-100"
+                        role="menuitem"
+                        ><span class="mr-4"><i class="fas fa-comments"></i></span>Testimonials</a>
+                      <a
+                        href="/#contact"
+                        class="block p-3 text-gray-700 hover:underline  flex items-center subTitleText border-b border-gray-100"
+                        role="menuitem"
+                        ><span class="mr-4"><i class="fas fa-phone-alt"></i></span>Contact Us</a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              
+              <li class="ml-8">
+                <a
+                  href="/#menu"
+                  class="titleText transition duration-300 ease-in-out"
+                  >Menu</a
+                >
+              </li>
+              <li class="ml-8">
+                <a
+                  href="/offers"
+                  class="titleText transition duration-300 ease-in-out"
+                  >Offers</a
+                >
+              </li>
+              <% if(user){ %>
+              <li class="ml-8">
+                <div class="relative inline-block text-left">
+                  <div>
+                    <button
+                      type="button"
+                      class="inline-flex item-center justify-center w-full rounded-md font-medium text-gray-700 titleText transition duration-300 ease-in-out"
+                      id="options-menu"
+                      aria-expanded="true"
+                      aria-haspopup="true"
+                    >
+                      My Account
+                      <!-- Heroicon name: solid/chevron-down -->
+                      <svg
+                        class="ml-1 mt-0.5 h-5 w-5"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        aria-hidden="true"
+                        id="options-menu"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                  <div
+                    class="origin-top-right dropdown-menu rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none hidden"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="options-menu"
+                  >
+                    <div role="none" class="py-1">
+                      <a
+                        href="/customer/profile/"
+                        class="block p-3 flex items-center text-gray-700 hover:underline subTitleText border-b border-gray-100"
+                        role="menuitem"
+                        ><span class="mr-4"><i class="fas fa-user-circle"></i></span>Profile</a>
+                      <a
+                        href="<%=user.role=== "admin" ? '/admin/orders' : '/customer/orders' %>"
+                        class="block p-3 text-gray-700 hover:underline  flex items-center subTitleText border-b border-gray-100"
+                        role="menuitem"
+                        ><span class="mr-4"><i class="fas fa-clipboard-check"></i></span>Orders</a>
+                      <a
+                        href="/Logout"
+                        class="block p-3 text-gray-700 hover:underline flex items-center subTitleText"
+                        role="menuitem"
+                        ><span class="mr-4"><i class="fas fa-power-off"></i></span>Logout</a>
+                    </div>
+                  </div>
+                </div>
+               
+            
+              </li>
+              <% } else {%>
+              <li class="ml-8">
+                <a
+                  href="/login"
+                  class="titleText transition duration-300 ease-in-out"
+                  >Login</a
+                >
+              </li>
+              <% } %>
+              <li class="ml-8">
+                <a
+                  href="/cart"
+                  class="inline-block px-10 btn-primary py-1 rounded-full transition duration-300 ease-in-out flex item-center text-white shadow"
+                  ><img
+                    src="/img/shopping-cart.svg"
+                    style="width: 25px"
+                    alt="cart-icon"
+                  />
+                  <span class="text-white font-bold pl-px ml-2" id="cartCounter"
+                    ><%= session.cart ? session.cart.totalQty : '' %>
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <% } else if(user.role == "admin" && user.email =="mainAdmin@gmail.com") {%>
+
+        <div class="container mx-auto px-4">
+          <div class="relative flex items-center justify-between">
+            <a href="/"> <img src="/img/REIWAImg/REIWAIcon/logo.ico" alt="branding" class="inline-block"/>REIWA ANIME STATION</a>
+            <!-- Mobile menu button-->
+            <div class="absolute inset-y-0 right-0 flex items-center">
+              <button
+                class="inline-flex items-center justify-center text-gray-400 hover:text-gray-800 block md:hidden"
+                aria-expanded="false"
+               
+              >
+                <span class="sr-only">Open main menu</span>
+                <!-- Icon when menu is closed. -->
+                <!--
+              Heroicon name: outline/menu
+  
+              Menu open: "hidden", Menu closed: "block"
+            -->
+            <span id="close-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#000">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </span>
+            <span id="toggle-open">
+               <svg
+                  class="block h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="#000"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+            </span>
+              </button>
+            </div>
+            <div class="hidden md:block">
+              <ul class="flex items-center">
+                <li class="ml-8">
+                  <a
+                    href="/admin/adminMenu"
+                    class="titleText transition duration-300 ease-in-out"
+                    >Edit Menu</a
+                  >
+                </li>
+                <li class="ml-8">
+                  <a
+                    href="/admin/orders"
+                    class="titleText transition duration-300 ease-in-out"
+                    >Main Branch</a
+                  >
+                  </li>    
+                <li class="ml-8">
+                  <a
+                    href="/admin/ordersMakati"
+                    class="titleText transition duration-300 ease-in-out"
+                    >Makati Branch</a
+                  >
+                </li>
+                <li class="ml-8">
+                  <a
+                    href="/admin/ordersOrtigas"
+                    class="titleText transition duration-300 ease-in-out"
+                    >Ortigas Branch</a
+                  >
+                </li>
+                <a
+                href="/Logout"
+                class="block p-3 text-gray-700 hover:underline flex items-center subTitleText"
+                role="menuitem"
+                ><span class="mr-4"><i class="fas fa-power-off"></i></span>Logout</a>
+                <% if(user){ %>
+                <% } else {%>
+                <li class="ml-8">
+                  <a
+                    href="/login"
+                    class="titleText transition duration-300 ease-in-out"
+                    >Login</a
+                  >
+                </li>
+                <% } %>
+                <li class="ml-8">
+                  <a
+                    href="/cart"
+                    class="inline-block px-10 btn-primary py-1 rounded-full transition duration-300 ease-in-out flex item-center text-white shadow"
+                    ><img
+                      src="/img/shopping-cart.svg"
+                      style="width: 25px"
+                      alt="cart-icon"
+                    />
+                    <span class="text-white font-bold pl-px ml-2" id="cartCounter"
+                      ><%= session.cart ? session.cart.totalQty : '' %>
+                    </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <% } else { %>
+          
+        <div class="container mx-auto px-4">
+          <div class="relative flex items-center justify-between">
+            <a href="/"> <img src="/img/REIWAImg/REIWAIcon/logo.ico" alt="branding" class="inline-block"/>REIWA ANIME STATION</a>
+            <!-- Mobile menu button-->
+            <div class="absolute inset-y-0 right-0 flex items-center">
+              <button
+                class="inline-flex items-center justify-center text-gray-400 hover:text-gray-800 block md:hidden"
+                aria-expanded="false"
+               
+              >
+                <span class="sr-only">Open main menu</span>
+                <!-- Icon when menu is closed. -->
+                <!--
+              Heroicon name: outline/menu
+  
+              Menu open: "hidden", Menu closed: "block"
+            -->
+            <span id="close-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="#000">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </span>
+            <span id="toggle-open">
+               <svg
+                  class="block h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="#000"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+            </span>
+              </button>
+            </div>
+            <div class="hidden md:block">
+              <ul class="flex items-center">
+                <a
+                href="/Logout"
+                class="block p-3 text-gray-700 hover:underline flex items-center subTitleText"
+                role="menuitem"
+                ><span class="mr-4"><i class="fas fa-power-off"></i></span>Logout</a>
+              </ul>
+            </div>
+          </div>
+        </div>
+          <%}%>
+        
+
+        
+
+      
+        <div class="pt-2 pb-3 space-y-0.5 nav-menu border-b">
+          <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+         
+        <% if(user){ %>
+          <a
+            href="/"
+            class="text-gray-800 block px-4 py-2  hover:text-primary  font-medium"
+            >Home</a>
+            <a
+            href="/"
+            class="text-gray-800 block px-4 py-2  hover:text-primary  font-medium"
+            >About</a>
+          <a
+            href="/customer/profile/"
+            class="text-gray-800 block px-4 py-2  hover:text-primary  font-medium"
+            >Profile</a>
+          
+          <a
+            href="<%=user.role=== "admin" ? '/admin/orders' : '/customer/orders' %>"
+            class="text-gray-800 hover:text-primary  block px-4 py-2  text-base font-medium"
+            >Orders</a>
+          <a
+            href="/offers"
+            class="text-gray-800 hover:text-primary  block px-4 py-2  text-base font-medium"
+            >Offers</a>
+
+           <%  } else { %> 
+            
+          <a
+            href="/#menu"
+            class="text-gray-800 hover:text-primary  block px-4 py-2  text-base font-medium"
+            >Menu</a>
+           
+          <a
+            href="/login"
+            class="text-gray-800 hover:text-primary  block px-4 py-2  text-base font-medium"
+            >Login</a>
+          <a
+            href="/register"
+            class="text-gray-800 hover:text-primary  block px-4 py-2  text-base font-medium"
+            >Register</a>
+          <a
+            href="/cart"
+            class="text-gray-800 hover:text-primary  block px-4 py-2  text-base font-medium"
+            >Cart</a>
+
+        <% } %> 
+          
+
+           <% if(user){ %>
+          <a
+            href="/Logout"
+            class="text-gray-800  hover:text-primary block px-4 py-2 text-base font-medium"
+            >Logout</a
+          >
+          <% } %> 
+        </div>
+      
+    </nav>
+    <!-- navbar end -->
+    <%- body %>
+    
+    <!-- scripts -->
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js"
+      defer
+    ></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="/js/app.js"></script>
+  </body>
+</html>

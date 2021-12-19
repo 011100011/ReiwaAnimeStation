@@ -1,0 +1,201 @@
+<div class="status-wrapper py-4 sm:py-15 lg:pb-8 bg-secondary">
+  <div class="container mx-auto px-4">
+    <div class="boxshadow-none">
+      <input id="hiddenInput" type="hidden" value="<%= JSON.stringify(order) %>">
+      <div class="breadcrumbs py-2">
+        <div class="inline-block">
+          <a
+            href="/"
+            class="
+              text-sm
+              inline-block
+              align-middle
+              breadcrumbs-title
+              hover:text-primary
+            "
+            >Home</a
+          >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            class="h-3 w-5 align-middle inline-block"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </div>
+        <div class="inline-block">
+          <a
+            href="/customer/orders"
+            class="
+              text-sm
+              inline-block
+              align-middle
+              breadcrumbs-title
+              hover:text-primary
+            "
+            >My Orders</a
+          >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            class="h-3 w-3 align-middle inline-block order-place-dot"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </div>
+        <div class="inline-block">
+          <p class="text-sm uppercase"><%=order._id %></p>
+        </div>
+      </div>
+      <div class="delivery-details order-details bg-white mb-4 mt-2">
+        <div class="md:w-3/6 py-4 px-3 xl:py-6 xl:px-6 w-11/12">
+          <div class="inline-block">
+            <div class="delivery-address font-semibold mb-4">
+              <span>Delivery Address</span>
+            </div>
+            <div class="delivery-name font-semibold text-sm mb-2">
+              <span class="customer-billing-name"
+                ><%=order.address.firstName %> <%=order.address.lastName
+                %></span
+              >
+            </div>
+            <div class="delivery-address text-sm mb-2">
+              <span class="customer-billing-address"
+                ><%=order.address.street_address%><%
+                if(order.address.landmark){ %>, near at
+                <%=order.address.landmark%> <% } %> -
+                <%=order.address.pincode%>
+              </span>
+            </div>
+            <div class="delivery-branch text-sm mb-2">
+              <span class="font-semibold customer-branch">Preferred Branch:</span>
+              <span class="ml-1">
+                
+                <% if(order.address.city == "Pasig" || order.address.city == "Cainta" || order.address.city == "Marikina" || order.address.city == "Pateros"){ %>
+                  Main (Pasig Cainta)
+                  <% } %>
+                  <% if(order.address.city == "Mandaluyong" || order.address.city == "Quezon"){ %>
+                    Ortigas
+                    <% } %>
+                    <% if(order.address.city == "Makati" || order.address.city == "Taguig"){ %>
+                      Makati
+                      <% } %>
+       
+              
+              </span>
+            </div>
+            <div class="delivery-phone text-sm mb-2">
+              <span class="font-semibold customer-phoneno">Phone number:</span>
+              <span class="ml-1"><%=order.address.phone%> </span>
+            </div>
+            <div class="delivery-payement text-sm">
+              <span class="font-semibold customer-payment">Payment Type:</span>
+              <span class="ml-1 uppercase"><%=order.paymentType%> </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="order-details bg-white">
+        <div class="py-3 px-3 xl:py-4 xl:px-6 md:w-3/6 w-full">
+          <div class="order-content mb-3">
+            <div class="mb-2">
+              <div class="mb-2 sm:mb-0">
+                <p class="text-sm font-semibold order-number">Order Number:
+                  <b class="breadcrumbs-title-2 ml-1"><%=order._id %></b>
+                </p>
+              </div>
+            </div>
+            <div class="pt-2">
+              <div>
+                <div class="mb-1 w-4/6 md:w-5/6 lg:w-3/6">
+                  <%for(let items of Object.values(order.items)){%>
+                  <div class="flex mb-3 mt-1">
+                    <img
+                      src="/img/REIWAImg/REIWAMenu/TurningJapanese/<%=items.item.image %>"
+                      alt="<%=items.item.name%>"
+                      class="h-10"
+                    />
+                    <div class="item-info ml-3 w-full">
+                      <div class="flex items-center">
+                        <span
+                          class="text-sm text-gray-600 mr-1.5 font-semibold"
+                        >
+                          <%=items.item.name%>
+                        </span>
+                        
+                      </div>
+
+                      <div class="flex justify-between items-center">
+                        <span class="text-sm">Qty: <%=items.qty%></span>
+
+                        <span class="text-sm -mt-1 -mr-1.5"
+                          >₱ <%=items.item.price* items.qty%></span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <% } %>
+                  <div class="flex-1">
+                    <div class="w52"></div>
+                    <div class="flex justify-between w-full mt-6">
+                      <span class="text-sm font-semibold total-amount text-black">Shipping Fee:</span>
+                      <span class="text-sm font-semibold -mr-1.5 text-black">₱40</span>
+                    </div> 
+                  </div>
+
+                  <div class="flex-1">
+                    <div class="w52"></div>
+                    <div class="flex justify-between w-full mt-6">
+                      <span class="text-sm font-semibold total-amount text-black">Total Amount:</span>
+                      <span class="text-sm font-semibold -mr-1.5 text-black">
+                        <% var total = 40; %> <%for(let items of Object.values(order.items)) { %>
+                        <% total += items.item.price * items.qty %>  <%  } %>
+                        ₱ <%= total%></span>
+                    </div> 
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="go-back text-center mt-5">
+        <a
+          href="/customer/orders"
+          class="
+            inline-block
+            px-3
+            py-2
+            btn-primary
+            rounded-full
+            transition
+            duration-300
+            ease-in-out
+            text-white
+            shadow
+            text-sm
+            lg:text-md
+            lg:px-6
+            lg:py-2.5
+          "
+          >Go back
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
